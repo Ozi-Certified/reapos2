@@ -1,10 +1,16 @@
-fetch('pokemon.json')
+/*fetch('pokemon.json')
     .then(function(response) {
         return response.json();
     })
     .then(function(data) {
         displayPokemonCards(data)
-    });
+    });*/
+
+    $(document).ready(function(){
+        $.get("https://uyghur.ai/course/data/pokemon.json", function(GET){
+            displayPokemonCards(GET)
+        });
+
 
 function displayPokemonCards(pokemonData) {
     let pokemonDiv = document.getElementById("pokemonContainer");
@@ -61,6 +67,7 @@ function displayPokemonCards(pokemonData) {
     }
 }
 
+});
 
 function pokemonSayHello(pokemon) {
     alert("Name: " + pokemon.name + "          Type(s): " + pokemon.type + " type.");
